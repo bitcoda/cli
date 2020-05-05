@@ -43,7 +43,7 @@
     "build:deptree": "depcruise --exclude \"^node_modules\" --output-type dot src | dot -T svg > site/dist/dependencygraph.svg",
     "ci": "run-s test build",
     "start": "node ./bin/run",
-    "test": "run-s test:*",
+    "test": "npm ci --prefix tests/site-cra && srun-s test:*",
     "ava": "ava --verbose",
     "test:ava": "nyc --reporter=lcov ava --verbose && nyc report",
     "test:lint": "eslint --fix \"{src,scripts}/**/*.js\"",
